@@ -1,10 +1,13 @@
 import {Injectable} from '@angular/core';
 import {QuotesModule} from './quotes.module';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 export interface QuoteDto {
-  id: number;
+  id: string;
   text: string;
+  source: string;
 }
 
 @Injectable({
@@ -12,10 +15,10 @@ export interface QuoteDto {
 })
 export class QuotesService {
 
-  constructor() {
+  constructor(private _httpClient: HttpClient) {
   }
 
   getQuotes(): Observable<QuoteDto[]> {
-    return of([{id: 1, text: 'Test #1'}, {id: 2, text: 'Test #2'}]);
+    return this._httpClient.get<QuoteDto[]>(environment.apiUrl + '/quotes');
   }
 }
