@@ -12,4 +12,8 @@ export class QuoteItemComponent {
 
   constructor() {
   }
+
+  get source() {
+    return this.quote.source !== '' ? this.quote.source : 'Unknown';
+  }
 }
