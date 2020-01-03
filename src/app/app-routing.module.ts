@@ -3,7 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 
 
 const routes: Routes = [
-  {path: 'quotes', loadChildren: () => import('./quotes/quotes.module').then(m => m.QuotesModule)}
+  {path: 'quotes', loadChildren: () => import('./quotes/quotes.module').then(m => m.QuotesModule)},
+  {path: '', pathMatch: 'full', redirectTo: 'quotes'}
 ];
 
 @NgModule({
