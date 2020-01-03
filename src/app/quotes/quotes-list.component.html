@@ -1,3 +1,8 @@
-<div *ngFor="let quote of quotes">
-  <app-quote-item [quote]="quote"></app-quote-item>
-</div>
+<nb-list nbInfiniteList listenWindowScroll [threshold]="500" (bottomThreshold)="loadNext()">
+  <nb-list-item *ngFor="let quote of quotes">
+    <app-quote-item [quote]="quote"></app-quote-item>
+  </nb-list-item>
+  <nb-list-item *ngFor="let _ of placeholders">
+    <app-quote-item></app-quote-item>
+  </nb-list-item>
+</nb-list>

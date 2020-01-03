@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {QuotesRoutingModule} from './quotes-routing.module';
 import {QuotesListComponent} from './quotes-list.component';
-import {NbCardModule, NbIconModule} from '@nebular/theme';
+import {NbCardModule, NbIconModule, NbListModule} from '@nebular/theme';
 import {QuoteItemComponent} from './quote-item.component';
 
 
@@ -13,7 +13,8 @@ import {QuoteItemComponent} from './quote-item.component';
     CommonModule,
     QuotesRoutingModule,
     NbCardModule,
-    NbIconModule
+    NbIconModule,
+    NbListModule
   ],
   entryComponents: [QuotesListComponent]
 })

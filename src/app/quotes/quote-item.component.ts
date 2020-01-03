@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {QuoteDto} from './quotes.service';
 
 @Component({
@@ -6,11 +6,21 @@ import {QuoteDto} from './quotes.service';
   templateUrl: './quote-item.component.html',
   styleUrls: ['./quote-item.component.scss']
 })
-export class QuoteItemComponent {
+export class QuoteItemComponent implements OnInit {
 
   @Input() quote: QuoteDto;
 
   constructor() {
+  }
+
+  ngOnInit() {
+    if (this.quote === undefined) {
+      this.quote = {
+        id: '',
+        text: '',
+        source: ''
+      };
+    }
   }
 
   get source() {
